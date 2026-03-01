@@ -16,7 +16,6 @@ import torch
 
 from utils.helpers import load_config, get_device
 
-
 # Model registry with HuggingFace model names
 MODEL_REGISTRY = {
     "muril": {

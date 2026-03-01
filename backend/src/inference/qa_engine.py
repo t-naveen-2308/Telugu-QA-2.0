@@ -8,7 +8,7 @@ Supports both base checkpoints and LoRA (PEFT) domain-adapted models.
 
 from pathlib import Path
 from typing import Dict, List, Optional, Union
-from utils.helpers import check_question_relevance
+from src.utils.helpers import check_question_relevance
 from transformers import pipeline, AutoModelForQuestionAnswering, AutoTokenizer
 import torch
 

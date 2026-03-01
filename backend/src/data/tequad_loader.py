@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Union
 from datasets import Dataset, DatasetDict
 
-from utils.helpers import get_project_root, load_config
+from src.utils.helpers import get_project_root, load_config
 
 
 def load_json_file(file_path: Union[str, Path]) -> Dict:

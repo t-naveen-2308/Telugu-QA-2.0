@@ -1,4 +1,4 @@
-# 🇮🇳 Telugu Question Answering System
+# Telugu Question Answering System (Telugu-QA 2.0)
 
 A production-ready Telugu Question Answering system using fine-tuned transformer models with morphology-aware answer refinement.
 
