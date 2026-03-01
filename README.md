@@ -143,11 +143,8 @@ telugu-qa-system/
 │   └── vite.config.ts
 │
 ├── data/                         # Datasets (Ignored in Git, download from Drive)
-│   # 📥 [https://drive.google.com/drive/folders/1iLgR6i3wjM4GQZKZOluIVTpvSgfi_n7J?usp=drive_link]
 │
 ├── models/                       # Trained model weights and adapters (Ignored in Git)
-│   # 📥 [https://drive.google.com/drive/folders/1lv3qNzY_er_H6O_8YbER1ORnwkScTr-x?usp=drive_link]
-│
 │
 ├── notebooks/                    # Training notebooks (Google Colab)
 │   ├── 01_training_colab.ipynb   # MuRIL & IndicBERT training
@@ -168,7 +165,12 @@ telugu-qa-system/
 ├── requirements.txt              # Python dependencies
 └── README.md                     # This file
 ```
+### 🔗 Links
 
+- **Data** [View Dataset](https://drive.google.com/drive/folders/1iLgR6i3wjM4GQZKZOluIVTpvSgfi_n7J?usp=drive_link)
+
+- **Models** [View Trained Models](https://drive.google.com/drive/folders/1lv3qNzY_er_H6O_8YbER1ORnwkScTr-x?usp=drive_link)
+   
 ---
 
 ## 🎯 Features
