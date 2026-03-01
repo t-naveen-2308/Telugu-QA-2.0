@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Data and Logs (Ignore any collected data or scraper output)
+*.log
+*.csv
+*.json
+*.txt
+*.parquet
+*.db
+*.sqlite3
+
+# Except for READMEs or specific config files you might want to version
+!README.md
+!requirements.txt
+!config/

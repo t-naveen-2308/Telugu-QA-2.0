@@ -1,0 +1,44 @@
+# Telugu QA System - Model Configuration
+# Priority order for training on Colab Free (single GPU, T4 15GB)
+
+models:
+  # Priority 1: Best for Indian languages
+  muril:
+    name: "google/muril-base-cased"
+    display_name: "MuRIL"
+    description: "Multilingual Representations for Indian Languages - Best for Telugu"
+    params: "237M"
+    gpu_memory: "8-10GB"
+    priority: 1
+    
+  # Priority 2: Lightweight, good for deployment
+  indicbert:
+    name: "ai4bharat/indic-bert"
+    display_name: "IndicBERT"
+    description: "Lightweight ALBERT-based model for Indian languages"
+    params: "33M"
+    gpu_memory: "4-6GB"
+    priority: 2
+    
+  # Priority 3: Strong cross-lingual baseline
+  xlmr:
+    name: "xlm-roberta-base"
+    display_name: "XLM-RoBERTa"
+    description: "Cross-lingual RoBERTa - good for transfer learning"
+    params: "278M"
+    gpu_memory: "10-12GB"
+    priority: 3
+
+# Default model to use
+default_model: "muril"
+
+# QA Head configuration
+qa_head:
+  num_labels: 2  # start and end positions
+  
+# Tokenizer settings
+tokenizer:
+  max_length: 384
+  doc_stride: 128
+  max_query_length: 64
+  max_answer_length: 30
