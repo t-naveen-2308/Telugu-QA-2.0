@@ -167,9 +167,9 @@ telugu-qa-system/
 ```
 ### 🔗 Links
 
-- **Data** [View Dataset](https://drive.google.com/drive/folders/1iLgR6i3wjM4GQZKZOluIVTpvSgfi_n7J?usp=drive_link)
+- **Data** [View Dataset](https://drive.google.com/file/d/14VQT-KSc23F-p3fHqS5UU8x4OSLPgf3L/view?usp=drive_link)
 
-- **Models** [View Trained Models](https://drive.google.com/drive/folders/1lv3qNzY_er_H6O_8YbER1ORnwkScTr-x?usp=drive_link)
+- **Models** [View Trained Models](https://drive.google.com/file/d/19HRXNHSZPBJvmw1qKRy5uzyLBNrPilCh/view?usp=drive_link)
    
 ---
 
