@@ -59,23 +59,23 @@ def get_tts():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan - preload default model."""
-    print("🚀 Starting Telugu QA API...")
+    print("[INFO] Starting Telugu QA API...")
     try:
         # Preload MuRIL (best model)
         get_engine("muril")
-        print("✅ MuRIL model loaded")
+        print("[OK] MuRIL model loaded")
     except Exception as e:
-        print(f"⚠️ Could not preload model: {e}")
+        print(f"[WARN] Could not preload model: {e}")
     
     try:
         get_tts()
-        print("✅ TTS engine loaded")
+        print("[OK] TTS engine loaded")
     except Exception as e:
-        print(f"⚠️ TTS not available: {e}")
+        print(f"[WARN] TTS not available: {e}")
     
     yield
     
-    print("👋 Shutting down Telugu QA API...")
+    print("[INFO] Shutting down Telugu QA API...")
 
 
 # Create FastAPI app

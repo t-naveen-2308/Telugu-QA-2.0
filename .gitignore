@@ -12,9 +12,13 @@ morphology-guide.txt
 # ----------------------------------------------------------------------
 models/
 
+models.zip
+
 !backend/src/models
 
 data/
+
+data.zip
 
 !backend/src/data
 

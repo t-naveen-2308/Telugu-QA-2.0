@@ -106,7 +106,7 @@ class TeluguTTS:
                 "Content-Type": "application/json"
             })
         
-        print(f"✓ Telugu TTS initialized (Sarvam AI Bulbul v3 - {self.speaker})")
+        print(f"[OK] Telugu TTS initialized (Sarvam AI Bulbul v3 - {self.speaker})")
     
     def _init_openai(self):
         """Initialize OpenAI TTS."""
@@ -116,10 +116,9 @@ class TeluguTTS:
         try:
             from openai import OpenAI
             self._openai_client = OpenAI(api_key=self.openai_api_key)
-            # Map speaker to OpenAI voice
-            if self.speaker not in self.OPENAI_VOICES:
-                self.speaker = "nova"  # Default female voice
-            print(f"✓ Telugu TTS initialized (OpenAI TTS - {self.speaker})")
+            # Map speaker to OpenAI voice without mutating self.speaker
+            openai_voice = self.speaker if self.speaker in self.OPENAI_VOICES else "nova"
+            print(f"[OK] Telugu TTS initialized (OpenAI TTS - {openai_voice})")
         except ImportError:
             raise ImportError("OpenAI package not installed. Run: pip install openai")
     
@@ -128,7 +127,7 @@ class TeluguTTS:
         try:
             from gtts import gTTS
             self._gtts_available = True
-            print("✓ Telugu TTS initialized (Google gTTS - Free)")
+            print("[OK] Telugu TTS initialized (Google gTTS - Free)")
         except ImportError:
             raise ImportError("gTTS package not installed. Run: pip install gTTS")
     
@@ -196,7 +195,7 @@ class TeluguTTS:
                     return self._speak_google(text, slow)
             except Exception as e:
                 last_error = e
-                print(f"⚠ {provider} TTS failed: {e}, trying next...")
+                print(f"[WARN] {provider} TTS failed: {e}, trying next...")
                 try:
                     next_idx = providers_to_try.index(provider) + 1
                     if next_idx < len(providers_to_try):
@@ -291,11 +290,11 @@ if __name__ == "__main__":
     
     try:
         tts = load_tts()
-        print("✓ TTS engine ready")
+        print("[OK] TTS engine ready")
         
         # Quick test
         print("\nTesting...")
         audio = tts.speak_bytes("హలో")
-        print(f"✓ Generated {len(audio)} bytes of audio")
+        print(f"[OK] Generated {len(audio)} bytes of audio")
     except Exception as e:
         print(f"Error: {e}")

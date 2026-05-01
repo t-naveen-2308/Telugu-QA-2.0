@@ -211,6 +211,33 @@ function App() {
               onSelectModel={setSelectedModel}
             />
 
+            {/* Model Performance */}
+            {currentModel && (
+              <div className="surface p-5">
+                <h3 className="font-semibold text-[var(--text-primary)] mb-4 flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                      <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    </span>
+                    Performance
+                  </div>
+                  <span className="text-blue-600 dark:text-blue-400 font-bold text-[11px] bg-blue-100 dark:bg-blue-900/40 px-2 py-1 rounded-md whitespace-nowrap">
+                    {currentModel.name}
+                  </span>
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-lg p-4 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/40 dark:to-blue-900/20 border border-blue-200/50 dark:border-blue-800/30">
+                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{currentModel.exact_match.toFixed(1)}%</p>
+                    <p className="text-xs text-blue-600/70 dark:text-blue-400/60 mt-1 font-medium">Exact Match</p>
+                  </div>
+                  <div className="rounded-lg p-4 bg-gradient-to-br from-emerald-50 to-emerald-100/50 dark:from-emerald-950/40 dark:to-emerald-900/20 border border-emerald-200/50 dark:border-emerald-800/30">
+                    <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{currentModel.f1_score.toFixed(1)}%</p>
+                    <p className="text-xs text-emerald-600/70 dark:text-emerald-400/60 mt-1 font-medium">F1 Score</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Quick Examples */}
             <div className="surface p-5">
               <h3 className="font-semibold text-[var(--text-primary)] mb-4 flex items-center gap-2.5 text-sm">
@@ -230,28 +257,6 @@ function App() {
                 ))}
               </select>
             </div>
-
-            {/* Model Performance */}
-            {currentModel && (
-              <div className="surface p-5">
-                <h3 className="font-semibold text-[var(--text-primary)] mb-4 flex items-center gap-2.5 text-sm">
-                  <span className="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                  </span>
-                  Model Performance
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-lg p-4 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/40 dark:to-blue-900/20 border border-blue-200/50 dark:border-blue-800/30">
-                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{currentModel.exact_match.toFixed(1)}%</p>
-                    <p className="text-xs text-blue-600/70 dark:text-blue-400/60 mt-1 font-medium">Exact Match</p>
-                  </div>
-                  <div className="rounded-lg p-4 bg-gradient-to-br from-emerald-50 to-emerald-100/50 dark:from-emerald-950/40 dark:to-emerald-900/20 border border-emerald-200/50 dark:border-emerald-800/30">
-                    <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{currentModel.f1_score.toFixed(1)}%</p>
-                    <p className="text-xs text-emerald-600/70 dark:text-emerald-400/60 mt-1 font-medium">F1 Score</p>
-                  </div>
-                </div>
-              </div>
-            )}
           </aside>
 
           {/* Main Content */}

@@ -10,7 +10,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import type { TrainingData } from '../types';
-import { TrendingUp } from 'lucide-react';
+import { TrendingUp, Award } from 'lucide-react';
 
 interface Props {
   data: TrainingData;
@@ -58,13 +58,14 @@ export default function TrainingChart({ data }: Props) {
   const chartData = transformData(chartType === 'training' ? 'training' : 'validation');
 
   return (
-    <div className="surface p-6">
+    <div className="space-y-6">
+      <div className="surface p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-semibold text-[var(--text-primary)] flex items-center gap-2.5 text-sm">
           <span className="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
             <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400" />
           </span>
-          Training Loss Comparison
+          {chartType === 'training' ? 'Training' : 'Validation'} Loss Comparison
         </h3>
         <div className="flex gap-2">
           <button
@@ -181,9 +182,17 @@ export default function TrainingChart({ data }: Props) {
           </LineChart>
         </ResponsiveContainer>
       </div>
+      </div>
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-5">
+      <div className="surface p-6">
+        <h3 className="font-semibold text-[var(--text-primary)] flex items-center gap-2.5 text-sm mb-5">
+          <span className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+            <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          </span>
+          Overall Model Performance
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {[
           { key: 'muril', name: 'MuRIL', em: 68.5, f1: 84.0, color: colors.muril, best: data.muril.best_step, rank: 1 },
           { key: 'mbert', name: 'mBERT', em: 61.1, f1: 77.2, color: colors.mbert, best: data.mbert.best_step, rank: 2 },
@@ -217,6 +226,7 @@ export default function TrainingChart({ data }: Props) {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </div>
   );
